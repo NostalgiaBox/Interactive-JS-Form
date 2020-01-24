@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     bitcoinDiv.style.display = 'none';
     document.querySelector('#payment').value = 'credit card';
     nameField.focus();
+    toggleErrorDivVisibility(true);
 
 }, false);
 
@@ -272,7 +273,7 @@ function createErrorMessage(type, message) {
 function toggleErrorDivVisibility(tryHide){
     const errorBox = document.querySelector('#error-box');
     if (tryHide) {
-        if (!errorBox.hasChildNodes) {
+        if (!errorBox.hasChildNodes()) {
             errorBox.style.display = 'none';
         }
     } else {
