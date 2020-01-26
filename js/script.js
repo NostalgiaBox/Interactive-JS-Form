@@ -175,7 +175,14 @@ form.addEventListener('input', (e) => {
 
 // Upon submit being clicked, it will need to run all of the verifications through this function.  It returns true if all verifications pass
 function validateForm(){
-    return verifyAll();
+    
+    if (!verifyAll()){
+        alert('There was a problem with your submission, please check for highlighted fields and error messages at the bottom of the page.');
+        return false;
+    }else {
+        return true
+    }
+    return verifyAll;
 }
 
 // This function runs all the verifications.  It is an if chain rather than an if/else chain because we want ALL the errors
