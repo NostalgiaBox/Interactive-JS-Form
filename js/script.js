@@ -177,7 +177,14 @@ form.addEventListener('input', (e) => {
 function validateForm(){
     
     if (!verifyAll()){
-        alert('There was a problem with your submission, please check for highlighted fields and error messages at the bottom of the page.');
+        const errorMessage = document.createElement('h2');
+        const container = document.querySelector('.container');
+        const formContainer = document.getElementsByTagName('FORM')[0];
+        if (container.querySelector('#error-header') == null){
+        errorMessage.id = 'error-header';
+        errorMessage.textContent = 'There was an error in your form submission.  Please correct any highlighted boxes and check for errors next to the "Submit" button';
+        container.insertBefore(errorMessage, formContainer);
+        }
         return false;
     }else {
         return true
